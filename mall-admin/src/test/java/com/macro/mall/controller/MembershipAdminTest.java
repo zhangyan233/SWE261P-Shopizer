@@ -79,7 +79,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam)
-    * There are two possible input: valid input(right username and password) and invalid(wrong username and password)
+    * Two possible situations: valid input(correct username and password), invalid(incorrect username and password)
     */
     @Test
     public void testValidLogin() throws Exception {
@@ -155,7 +155,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: getItem(@PathVariable Long id)
-    * There are three situations: negative id(invalid id),existing id, doesn't existing id
+    * Three possible situations: negative id(invalid id),existing id, not existing id
     */
     @Test
     public void testGetExistingItem() throws Exception {
@@ -182,7 +182,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: update(@PathVariable Long id, @RequestBody UmsAdmin admin)
-    * There are three situations: negative id(invalid id),existing id, doesn't existing id
+    * Three possible situations: negative id(invalid id), existing id, not existing id
     */
     @Test
     public void testUpdateExistingID() throws Exception {
@@ -228,7 +228,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: updatePassword(@Validated @RequestBody UpdateAdminPasswordParam updatePasswordParam)
-    * There are four situations: can't find user,invalid new password,invalid old password
+    * Four possible situations: existing user, not existing user, invalid new password, invalid old password
     */
     @Test
     public void testUpdatePassword() throws Exception {
@@ -274,7 +274,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: delete(@PathVariable Long id)
-    * There are two situations: existing id and no existing id
+    * Two possible situations: existing id, not existing id
     */
     @Test
     public void testDelete() throws Exception {
@@ -294,7 +294,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status)
-    * There are three situations: valid input, invalid id, invalid status
+    * Three possible situations: valid input, invalid id, invalid status
     */
     @Test
     public void testUpdateStatus() throws Exception {
@@ -315,7 +315,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: updateRole(@RequestParam("adminId") Long adminId, @RequestParam("roleIds") List<Long> roleIds)
-    * There are three siuations: valid input,invalid admitID,int valid roleID
+    * Three possible situations: valid input, invalid admitID, invalid roleID
     */
     @Test
     public void testUpdateRole() throws Exception {
@@ -336,7 +336,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: getRoleList(@PathVariable Long adminId)
-    * There are two situations: valid id, invalid id
+    * Two possible situations: valid id, invalid id
     */
     @Test
     public void testGetRoleList() throws Exception {
@@ -349,12 +349,13 @@ public class MembershipAdminTest{
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
 
-    /*--------------------------------------wrong input-----------------------------------*/
+    /*--------------------------------------Incorrect Input Set-----------------------------------*/
 
     /**
      *
      * Method: update password
-     * use the word put following the admin
+     * use the word not following the admin pattern
+     * e.g. put
      */
     @Test
     public void testPutPassword() throws Exception {

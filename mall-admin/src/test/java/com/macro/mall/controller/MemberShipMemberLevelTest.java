@@ -45,7 +45,7 @@ public class MemberShipMemberLevelTest {
     /**
     *
     * Method: list(@RequestParam("defaultStatus") Integer defaultStatus)
-    * There are two situations: valid memberLever, invalid memberLevel
+    * Two possible situations: valid memberLevel, invalid memberLevel
     */
     @Test
     public void testList() throws Exception {
