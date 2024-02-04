@@ -47,7 +47,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: register(@Validated @RequestBody UmsAdminParam umsAdminParam)
-    * There are two possible input: valid input and invalid input(null)
+    * Two possible input: valid input, invalid input(null)
     */
     @Test
     public void testValidRegister() throws Exception {
