@@ -294,7 +294,7 @@ public class MembershipAdminTest{
     /**
     *
     * Method: updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status)
-    * Three possible situations: valid input, invalid id, invalid status
+    * Three possible situations: valid input, invalid id, invalid status(only 0,1 valid status)
     */
     @Test
     public void testUpdateStatus() throws Exception {
@@ -360,7 +360,7 @@ public class MembershipAdminTest{
     @Test
     public void testPutPassword() throws Exception {
         UpdateAdminPasswordParam updateAdminPasswordParam=new UpdateAdminPasswordParam();
-        updateAdminPasswordParam.setUsername("262P-software test");
+        updateAdminPasswordParam.setUsername("262P");
         updateAdminPasswordParam.setOldPassword("1234");
         updateAdminPasswordParam.setNewPassword("1111");
 
