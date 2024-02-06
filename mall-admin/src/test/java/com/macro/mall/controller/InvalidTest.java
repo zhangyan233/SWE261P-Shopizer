@@ -37,7 +37,7 @@ public class InvalidTest {
     /**
      *
      * Method: register(@Validated @RequestBody UmsAdminParam umsAdminParam)
-     * use word not belong to membership management system*
+     * use word not belong to membership management system, ex: order
      */
     @Test
     public void testRegister() throws Exception {
@@ -58,7 +58,7 @@ public class InvalidTest {
     /**
      *
      * Method: register(@Validated @RequestBody UmsAdminParam umsAdminParam)
-     * use word not belong to backend management system*
+     * use word not belong to backend management system, ex: money
      */
     @Test
     public void testRegi() throws Exception {

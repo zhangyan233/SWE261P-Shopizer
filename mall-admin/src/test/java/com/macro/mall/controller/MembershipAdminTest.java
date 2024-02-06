@@ -149,7 +149,7 @@ public class MembershipAdminTest{
     @Test
     public void testList() throws Exception {
         MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.get("/admin/list").contentType(MediaType.APPLICATION_JSON).
-                param("keyword","test","pageSize","5","pageNum","2")).andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
+                param("keyword","","pageSize","5","pageNum","1")).andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
 
     /**
@@ -159,7 +159,7 @@ public class MembershipAdminTest{
     */
     @Test
     public void testGetExistingItem() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.get("/admin/12").
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.get("/admin/14").
                         contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk()).
                 andDo(MockMvcResultHandlers.print()).andReturn();
@@ -193,7 +193,7 @@ public class MembershipAdminTest{
         umsAdminParam.setNote("test valid input in register");
         umsAdminParam.setPassword("1234");
         umsAdminParam.setUsername("262P-software test");
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/update/12").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(umsAdminParam)))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/update/14").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(umsAdminParam)))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
 
     }
@@ -233,7 +233,7 @@ public class MembershipAdminTest{
     @Test
     public void testUpdatePassword() throws Exception {
         UpdateAdminPasswordParam updateAdminPasswordParam=new UpdateAdminPasswordParam();
-        updateAdminPasswordParam.setUsername("262P-software test");
+        updateAdminPasswordParam.setUsername("262P");
         updateAdminPasswordParam.setOldPassword("1234");
         updateAdminPasswordParam.setNewPassword("1111");
 
@@ -243,7 +243,7 @@ public class MembershipAdminTest{
     @Test
     public void testUpdatePasswordNoExistingUser() throws Exception {
         UpdateAdminPasswordParam updateAdminPasswordParam=new UpdateAdminPasswordParam();
-        updateAdminPasswordParam.setUsername("262P");
+        updateAdminPasswordParam.setUsername("262P-software");
         updateAdminPasswordParam.setOldPassword("1234");
         updateAdminPasswordParam.setNewPassword("1111");
 
@@ -253,8 +253,8 @@ public class MembershipAdminTest{
     @Test
     public void testUpdatePasswordInvalidOldPassword() throws Exception {
         UpdateAdminPasswordParam updateAdminPasswordParam=new UpdateAdminPasswordParam();
-        updateAdminPasswordParam.setUsername("262P-software test");
-        updateAdminPasswordParam.setOldPassword("1234");
+        updateAdminPasswordParam.setUsername("262P");
+        updateAdminPasswordParam.setOldPassword("2222");
         updateAdminPasswordParam.setNewPassword("1111");
 
         MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/updatePassword").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(updateAdminPasswordParam)))
@@ -278,7 +278,7 @@ public class MembershipAdminTest{
     */
     @Test
     public void testDelete() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/delete/13").
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/delete/9").
                         contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk()).
                 andDo(MockMvcResultHandlers.print()).andReturn();
@@ -298,7 +298,7 @@ public class MembershipAdminTest{
     */
     @Test
     public void testUpdateStatus() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/updateStatus/12").accept(MediaType.APPLICATION_JSON).param("status","0"))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/updateStatus/14").accept(MediaType.APPLICATION_JSON).param("status","0"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
     @Test(expected = NestedServletException.class)
@@ -308,7 +308,7 @@ public class MembershipAdminTest{
     }
     @Test
     public void testUpdateStatusInvalidStatus() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/updateStatus/12").accept(MediaType.APPLICATION_JSON).param("status","5"))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/updateStatus/14").accept(MediaType.APPLICATION_JSON).param("status","5"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
 
@@ -319,7 +319,7 @@ public class MembershipAdminTest{
     */
     @Test
     public void testUpdateRole() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/role/update").accept(MediaType.APPLICATION_JSON).param("adminId","12").param("roleIds","1,5"))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/role/update").accept(MediaType.APPLICATION_JSON).param("adminId","14").param("roleIds","1,5"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
     @Test
@@ -329,7 +329,7 @@ public class MembershipAdminTest{
     }
     @Test
     public void testUpdateRoleInvalidRoleID() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/role/update").accept(MediaType.APPLICATION_JSON).param("adminId","12").param("roleIds","3"))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/role/update").accept(MediaType.APPLICATION_JSON).param("adminId","14").param("roleIds","3"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
 
@@ -340,7 +340,7 @@ public class MembershipAdminTest{
     */
     @Test
     public void testGetRoleList() throws Exception {
-        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.get("/admin/role/12").contentType(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.get("/admin/role/14").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
     }
     @Test
