@@ -47,7 +47,7 @@ public class UmsRoleControllerTest {
     /**
     *
     * Method: create(@RequestBody UmsRole role)
-    * There are two possible input: valid input and invalid input(null)
+    * Two possible situations: valid input, invalid input(null)
     */
     @Test
     public void testCreate() throws Exception {
@@ -70,7 +70,7 @@ public class UmsRoleControllerTest {
     /**
     *
     * Method: update(@PathVariable Long id, @RequestBody UmsRole role)
-    * There are two situations: valid roleID, and invalid roleId
+    * Two possible situations: valid roleID, invalid roleId
     */
     @Test
     public void testUpdate() throws Exception {
@@ -96,7 +96,7 @@ public class UmsRoleControllerTest {
     /**
     *
     * Method: delete(@RequestParam("ids") List<Long> ids)
-    * There are two situations: valid id and invalid id
+    * Two possible situations: valid id, invalid id
     */
     @Test
     public void testDelete() throws Exception {
@@ -134,7 +134,7 @@ public class UmsRoleControllerTest {
     /**
     *
     * Method: updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status)
-    * There are two situations: valid id,invalid id
+    * Two possible situations: valid id, invalid id
     */
     @Test
     public void testUpdateStatus() throws Exception {
