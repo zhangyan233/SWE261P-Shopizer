@@ -57,7 +57,7 @@ public class MembershipAdminTest{
         umsAdminParam.setNickName("miu");
         umsAdminParam.setNote("test valid input in register");
         umsAdminParam.setPassword("1234");
-        umsAdminParam.setUsername("262P");
+        umsAdminParam.setUsername("262P-Assignment 1.2");
 
         MvcResult mvcResult=mockMvc.perform(MockMvcRequestBuilders.post("/admin/register").
                 contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(umsAdminParam))).
