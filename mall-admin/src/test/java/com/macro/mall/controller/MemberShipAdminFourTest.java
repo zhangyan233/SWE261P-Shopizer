@@ -21,7 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
-public class MemberShipAdminTest4 {
+public class MemberShipAdminFourTest {
     @Autowired
     private UmsRoleController umsRoleController;
 
