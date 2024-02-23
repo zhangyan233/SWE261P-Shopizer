@@ -22,7 +22,5 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Complie test code
-      run: mvn compile 
     - name: Run unit test
       run: mvn clean test 
