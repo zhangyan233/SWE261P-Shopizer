@@ -22,7 +22,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn package 
-    - name: Run the Maven verify phase
+    - name: Complie test code
+      run: mvn compile 
+    - name: Run unit test
       run: mvn clean test 
