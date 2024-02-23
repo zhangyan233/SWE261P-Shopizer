@@ -23,4 +23,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run unit test
-      run: mvn clean -Dtest=MemberShipAdminTest4 test 
+      run: mvn clean test 
