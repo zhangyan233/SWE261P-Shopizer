@@ -31,7 +31,7 @@ jobs:
         version: 5.0.14
     - name: Setup mysql
       run: |
-      sudo /etc/init.d/mysql start
-      mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+        sudo /etc/init.d/mysql start
+        mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
     - name: Run unit test
       run: mvn clean test 
