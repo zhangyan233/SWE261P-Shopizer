@@ -13,7 +13,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      DB_DATABASE: mall
+      DB_USER: root
+      DB_PASSWORD: 1234
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 8
@@ -27,14 +30,8 @@ jobs:
       with:
         version: 5.0.14
     - name: Setup mysql
-      uses:  actions/setup-mysql@v3
-      with:
-        host port: 3306
-        container port: 3306
-        character set server: utf-8
-        mysql version: 8.0.31
-        mysql database: jdbc:mysql://localhost:3306/mall
-        mysql user: root
-        mysql password: 1234
+      run: |
+      sudo /etc/init.d/mysql start
+      mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
     - name: Run unit test
       run: mvn clean test 
