@@ -9,12 +9,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    env:
-        DB_DATABASE: mall
-        DB_USER: root
-        DB_PASSWORD: root
+    services:
+      mysql:
+        image: mysql:8
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: test
+          MYSQL_ROOT_PASSWORD: password
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 8
@@ -29,10 +35,13 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-    - name: Set up MySQL
+    - name: Verify MySQL connection
+      env:
+        PORT: ${{ job.services.mysql.ports[3306] }}
       run: |
-          sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+        while ! mysqladmin ping -h"127.0.0.1" -P"$PORT" --silent; do
+          sleep 1
+        done
     - name: unit test
       run: mvn clean test
       
