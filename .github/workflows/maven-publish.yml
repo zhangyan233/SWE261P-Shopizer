@@ -26,7 +26,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Setup redis
-      uses: actions/setup-redis@v3
+      uses: redis/redis-github-action@1.1.0
       with:
         version: 5.0.14
     - name: Setup mysql
