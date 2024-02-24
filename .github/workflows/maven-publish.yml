@@ -21,7 +21,6 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Run compile
-      run: mvn compile
-    - name: Run unit test
-      run: mvn clean test -D test=MembershipAdminTest
+    - name: unit test
+      run: mvn clean test
+      
