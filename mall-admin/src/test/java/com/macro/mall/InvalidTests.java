@@ -1,6 +1,7 @@
-package com.macro.mall.controller;
+package com.macro.mall;
 
 import com.alibaba.fastjson.JSONObject;
+import com.macro.mall.controller.UmsAdminController;
 import com.macro.mall.dto.UmsAdminParam;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +24,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest
 @WebAppConfiguration
 @ActiveProfiles("dev")
-public class InvalidTest {
+public class InvalidTests {
     @Autowired
     private UmsAdminController umsAdminController;
 

@@ -1,6 +1,7 @@
-package com.macro.mall.controller;
+package com.macro.mall;
 
 import com.alibaba.fastjson.JSONObject;
+import com.macro.mall.controller.UmsRoleController;
 import com.macro.mall.model.UmsRole;
 import org.junit.Test;
 import org.junit.Before; 
@@ -31,7 +32,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest
 @WebAppConfiguration
 @ActiveProfiles("dev")
-public class UmsRoleControllerTest {
+public class UmsRoleControllerTests {
 
     @Autowired
     private UmsRoleController umsRoleController;

@@ -1,6 +1,7 @@
-package com.macro.mall.controller;
+package com.macro.mall;
 
 import com.alibaba.fastjson.JSONObject;
+import com.macro.mall.controller.UmsMemberLevelController;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
@@ -30,7 +31,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest
 @WebAppConfiguration
 @ActiveProfiles("dev")
-public class MemberShipMemberLevelTest {
+public class MemberShipMemberLevelTests {
 
     @Autowired
     private UmsMemberLevelController umsMemberLevelController;
