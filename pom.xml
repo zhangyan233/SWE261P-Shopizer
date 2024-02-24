@@ -239,8 +239,6 @@
                     <version>3.2.5</version>
                     <configuration>
                         <skipTests>false</skipTests>
-                        <testFailureIgnore>true</testFailureIgnore>
-                        <argLine>-Xmx1024m -Xx:MaxPermSize=256m</argLine>
                     </configuration>
                 </plugin>
                 <plugin>
