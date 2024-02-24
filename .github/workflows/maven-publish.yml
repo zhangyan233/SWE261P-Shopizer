@@ -13,10 +13,16 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      DB_DATABASE: mall
-      DB_USER: root
-      DB_PASSWORD: 1234
+    services:
+      mariadb:
+        image: mariadb:8.0.31
+        ports:
+          - 3306
+        env:
+          MYSQL_USER: root
+          MYSQL_PASSWORD: 1234
+          MYSQL_DATABASE: mall
+        options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 8
