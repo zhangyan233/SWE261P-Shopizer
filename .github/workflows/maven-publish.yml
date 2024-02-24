@@ -22,6 +22,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run compile
-      run: mvn complie
+      run: mvn compile
     - name: Run unit test
       run: mvn clean test -D test=MembershipAdminTest
