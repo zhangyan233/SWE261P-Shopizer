@@ -7,11 +7,13 @@ import com.macro.mall.dao.PmsProductDao;
 import com.macro.mall.dto.PmsProductResult;
 import com.macro.mall.model.PmsMemberPrice;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -20,6 +22,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class PmsDaoTests {
     @Autowired
