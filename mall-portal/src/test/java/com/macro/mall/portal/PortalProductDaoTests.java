@@ -5,6 +5,7 @@ import com.macro.mall.portal.domain.PromotionProduct;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * 前台商品查询逻辑单元测试
  */
 @SpringBootTest
+@ActiveProfiles("dev")
 public class PortalProductDaoTests {
     @Autowired
     private PortalProductDao portalProductDao;
