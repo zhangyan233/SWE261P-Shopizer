@@ -21,7 +21,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - uses: actions/cache@v1
-        with:
+      with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
