@@ -23,11 +23,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Setup redis
-      uses: redis/redis-action@1.1.0
+      uses: actions/setup-redis@v3
       with:
         version: 5.0.14
     - name: Setup mysql
-      uses: mysql/mysql-action@v1
+      uses:  actions/setup-mysql@v3
       with:
         host port: 3306
         container port: 3306
