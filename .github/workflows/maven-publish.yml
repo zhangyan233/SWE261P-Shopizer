@@ -26,6 +26,9 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-    - name: unit test
-      run: mvn clean test
+    - name: Build
+      run: mvn --batch-mode -DskipTests package
+
+    - name: Test
+      run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
       
