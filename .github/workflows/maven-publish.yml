@@ -4,6 +4,7 @@
 name: 261P Assignment4
 
 on:
+  #event to trigger workflow
   push:
     branches: [ "master" ]
   pull_request:
@@ -11,21 +12,30 @@ on:
 
 jobs:
   build:
+    #set running environment
     runs-on: ubuntu-latest
+
+    #operations
     steps:
     - uses: actions/checkout@v3
+
+      # set the version of JDK
     - name: Set up JDK 8
       uses: actions/setup-java@v3
       with:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
+
+      # in order to increase efficiency, Cache maven dependencies
     - uses: actions/cache@v1
       with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+
+      # run all test cases in project
     - name: Test
       run: mvn clean test
       
