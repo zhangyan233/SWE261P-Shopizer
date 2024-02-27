@@ -33,10 +33,17 @@ jobs:
             ${{ runner.os }}-maven-
 
       # set the version of MySQL
-    - uses: shogo82148/actions-setup-mysql@v1
-      with: 
-          mysql-version: "8.0"
-    - run: mysql -uroot -e 'SELECT version()'
+    - name: Set up MySQL
+      uses: mysql/setup-mysql@v2
+      with:
+        mysql-version: '8.0.31'
+        mysql-port: 3306
+        
+      # set the redis
+    - uses: shogo82148/actions-setup-redis@v1
+      with:
+        redis-version: "6.x"
+    - run: redis-cli ping
 
       # run all test cases in project
     - name: Test
