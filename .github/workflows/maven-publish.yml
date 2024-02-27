@@ -32,6 +32,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+    - uses: mall/actions-setup-mysql@v1
+      with: 
+          mysql-version: "8.0"
+    - run: mysql -uroot -e 'SELECT version()'
+
       # run all test cases in project
     - name: Test
       run: mvn clean test
