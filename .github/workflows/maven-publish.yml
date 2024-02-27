@@ -34,10 +34,14 @@ jobs:
 
       # set the version of MySQL
     - name: Set up MySQL
-      uses: mysql/setup-mysql@v2
+      uses: calxus/mysql-deploy-action@v1
       with:
-        mysql-version: '8.0.31'
-        mysql-port: 3306
+        DATABASE_HOST: '127.0.0.1'
+        DATABASE_PORT: '3306'
+        DATABASE_NAME: 'mall'
+        DATABASE_USERNAME: 'root'
+        DATABASE_PASSWORD: '1234'
+        DATABASE_SCRIPT: './document/sql/mall.sql'
         
       # set the redis
     - uses: shogo82148/actions-setup-redis@v1
