@@ -34,13 +34,11 @@ jobs:
 
       # set the version of MySQL
     - name: Set up MySQL
-      uses: calxus/mysql-deploy-action@v1
+    - uses: shogo82148/actions-setup-mysql@v1
       with:
-        DATABASE_PORT: '3306'
-        DATABASE_NAME: 'mall'
-        DATABASE_USERNAME: 'root'
-        DATABASE_PASSWORD: '1234'
-        DATABASE_SCRIPT: './document/sql/mall.sql'
+        mysql-version: "8.0"
+    - run: sudo service mysql start
+    - run: mysql -uroot -e 'SELECT version()'
         
       # set the redis
     - uses: shogo82148/actions-setup-redis@v1
