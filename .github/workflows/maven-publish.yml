@@ -38,7 +38,7 @@ jobs:
       with:
         mysql-version: "8.0"
     - run: sudo service mysql start
-    - run: mysql -uroot -e 'SELECT version()'
+
         
       # set the redis
     - uses: shogo82148/actions-setup-redis@v1
