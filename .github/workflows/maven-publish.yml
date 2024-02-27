@@ -36,7 +36,7 @@ jobs:
     - name: Set up MySQL
       uses: calxus/mysql-deploy-action@v1
       with:
-        DATABASE_HOST: '192.168.91.1'
+        DATABASE_HOST: 'db.host.io'
         DATABASE_PORT: '3306'
         DATABASE_NAME: 'mall'
         DATABASE_USERNAME: 'root'
