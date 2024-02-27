@@ -34,7 +34,7 @@ jobs:
 
       # set the version of MySQL
     - name: Set up MySQL
-      uses: yan/mysql-deploy-action@v1
+      uses: calxus/mysql-deploy-action@v1
       with:
         DATABASE_HOST: 'localhost'
         DATABASE_PORT: '3306'
