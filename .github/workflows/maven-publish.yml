@@ -36,8 +36,8 @@ jobs:
     - name: Set up MySQL
     - uses: shogo82148/actions-setup-mysql@v1
       with:
-          mysql-version: "8.0"
-    - run: sudo service mysql start
+        mysql-version: "8.0"
+    - run: mysql -uroot -e 'SELECT version()'
 
         
       # set the redis
