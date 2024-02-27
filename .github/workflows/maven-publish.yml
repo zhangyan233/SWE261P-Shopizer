@@ -34,9 +34,9 @@ jobs:
 
       # set the version of MySQL
     - name: Set up MySQL
-      uses: calxus/mysql-deploy-action@v1
+      uses: yan/mysql-deploy-action@v1
       with:
-        DATABASE_HOST: '127.0.0.1'
+        DATABASE_HOST: 'localhost'
         DATABASE_PORT: '3306'
         DATABASE_NAME: 'mall'
         DATABASE_USERNAME: 'root'
