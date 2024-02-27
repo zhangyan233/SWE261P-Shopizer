@@ -33,11 +33,10 @@ jobs:
             ${{ runner.os }}-maven-
 
       # set the version of MySQL
-    - name: Set up MySQL
     - uses: shogo82148/actions-setup-mysql@v1
       with:
         mysql-version: "8.0"
-    - run: mysql -uroot -e 'SELECT version()'
+    - run: sudo service mysql start
 
         
       # set the redis
