@@ -40,6 +40,7 @@ public class MembershipAdminTests {
     private UmsAdminController umsAdminController;
 
     private MockMvc mockMvc;
+
     @Autowired
     private WebApplicationContext webApplicationContext;
 
